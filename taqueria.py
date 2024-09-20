@@ -11,7 +11,7 @@ def main():
             # print total price
             print_price(total_value)
     except Exception as e:
-        exit(1)
+        exit(0)
 
 def create_menu():
     menu = {
