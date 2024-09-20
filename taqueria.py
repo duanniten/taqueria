@@ -29,5 +29,8 @@ def get_price(menu: dict):
         except KeyError:
             pass
 
+def print_price(price: float):
+    print(f'${price}')
+
 if __name__ == '__main__':
     main()
