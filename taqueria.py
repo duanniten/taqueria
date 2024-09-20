@@ -5,7 +5,7 @@ def main():
     price = get_price(menu)
     # print price of item
     print_price(price)
-    return
+
 
 def create_menu():
     menu = {
@@ -23,13 +23,16 @@ def create_menu():
 
 def get_price(menu: dict):
     while True:
-        item = input("Item: ").strip().lower()
+        item = input("Item: ").strip().title()
         try:
             return menu[item]
         except KeyError:
             pass
 
 def print_price(price: float):
+    price = str(price)
+    if price[-1] == '0':
+        price = price + '0'
     print(f'${price}')
 
 if __name__ == '__main__':
