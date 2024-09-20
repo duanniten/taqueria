@@ -2,9 +2,13 @@ def main():
     # create dict os entrees menu
     menu = create_menu()
     # get from menu the item price
-    price = get_price(menu)
-    # print price of item
-    print_price(price)
+    total_value = 0
+    while True:
+        price = get_price(menu)
+        if price == False: return
+        total_value += price
+        # print total price
+        print_price(total_value)
 
 
 def create_menu():
@@ -27,13 +31,13 @@ def get_price(menu: dict):
         try:
             return menu[item]
         except KeyError:
-            pass
+            if item == '': return False
 
 def print_price(price: float):
     price = str(price)
     if price[-1] == '0':
         price = price + '0'
-    print(f'${price}')
+    print(f'Total: ${price}')
 
 if __name__ == '__main__':
     main()
